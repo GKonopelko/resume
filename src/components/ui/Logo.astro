@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import favicon from '@assets/images/1C_Company_logo.svg';
+---
+
+<div class="logo-img">
+  <Image src={favicon} alt="Логотип - 1C" width={40} height={40} loading="lazy" />
+</div>
+
+<style>
+  .logo-img {
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 17.5rem) {
+    .logo-img {
+      display: none;
+    }
+  }
+</style>

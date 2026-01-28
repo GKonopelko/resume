@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/ui/Card.astro';
+import Section from '../components/ui/Section.astro';
+import FlexRow from '../components/ui/FlexRow.astro';
+---
+
+<BaseLayout title="Резюме" description="Резюме" canonicalUrl="0">
+  <Section>
+    <FlexRow>
+      <Card variant="no-border">
+        <div class="image-circle-container">
+          <img
+            src="/images/grigori.webp"
+            alt="Григорий Конопелько - программист 1С"
+            width="400"
+            height="400"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+            class="photo"
+          />
+        </div>
+      </Card>
+      <Card variant="no-border">
+        <h1>Конопелько Григорий Викторович</h1>
+        <h2>Программист 1С</h2>
+      </Card>
+    </FlexRow>
+  </Section>
+  <Section>
+    <h2 id="about">Обо мне</h2>
+    <p>
+      У меня есть начальный опыт работы в сфере IT и желание обучаться, развиваться и осваивать
+      новые технологии. Стараюсь в жизни найти баланс между работой, обучением и личной жизнью,
+      чтобы оставаться продуктивным и поддерживать гармонию. Я с энтузиазмом берусь за новые задачи
+      и использую возможности, способствующие моему профессиональному и личностному развитию.
+    </p>
+  </Section>
+
+  <Section background="light">
+    <h2 id="skills">Навыки</h2>
+    <ul>
+      <li>1C</li>
+      <li>TypeScript, JavaScript, React, Node.js, Astro</li>
+      <li>Git, GitHub, Vite, Webpack, HTML5, CSS3, Sass, Figma, StyleLint, ESLint, Prettier</li>
+      <li>Английский язык, финский язык</li>
+    </ul>
+  </Section>
+
+  <Section>
+    <h2 id="education">Образование</h2>
+    <FlexRow>
+      <Card variant="no-border">
+        <h3>1С</h3>
+        <img
+          src="/images/ПовышениеКвалификации1С.jpg"
+          alt="Григорий Конопелько - программист 1С"
+          width="500"
+          height="400"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="zoom-photo"
+        />
+      </Card>
+      <Card variant="no-border">
+        <h3>Front End</h3>
+        <img
+          src="/images/RSSchool Certificate.jpg"
+          alt="Григорий Конопелько - программист 1С"
+          width="300"
+          height="400"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="zoom-photo"
+        />
+        <div>-</div>
+        <img
+          src="/images/RSSchool Certificate React.jpg"
+          alt="Григорий Конопелько - программист 1С"
+          width="300"
+          height="400"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="zoom-photo"
+        />
+      </Card>
+      <Card variant="no-border">
+        <h3>Филология</h3>
+        <img
+          src="/images/Diplomi.Konopelko.jpg"
+          alt="Григорий Конопелько - программист 1С"
+          width="200"
+          height="400"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="zoom-photo"
+        />
+      </Card>
+    </FlexRow>
+  </Section>
+
+  <Section background="light">
+    <h2 id="experience">Опыт работы</h2>
+    <h3>Фриланс Front-end разработчик</h3>
+    <ul>
+      <li>Август 2023 — по настоящее время</li>
+      <li>Разработка современных сайтов на Astro, Next.js и React</li>
+      <li>Обеспечение SEO оптимизации сайта для улучшения видимости в поисковых системах</li>
+      <li>Интеграция с внешними API для получения данных и их обработки</li>
+      <li>Создание легко расширяемых и повторно используемых компонентов на React и TypeScript</li>
+      <li>
+        Разработка пользовательского интерфейса для веб-приложения с использованием Next.js (App
+        Router)
+      </li>
+      <li>
+        Стек: Next.js (App Router), React, TypeScript, Ant Design, Internationalization (i18n),
+        Firebase, ESLint, Prettier, Vitest, Husky, SSR, Redux, JavaScript, Zustand, TanStack Query,
+        Yup, HTML, Sass, Git, CSS3, Node.js, BEM, Figma, Vite, WebPack, Vitest, Multilingual SEO,
+        Schema.org, Accessibility, Open Graph, Local Business SEO, адаптивный дизайн, валидная
+        верстка
+      </li>
+    </ul>
+  </Section>
+</BaseLayout>
+
+<style>
+  .zoom-photo {
+    transition: transform 0.3s ease;
+    cursor: zoom-in;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .zoom-photo:hover {
+    transform: scale(1.4);
+    z-index: 1000;
+    position: relative;
+    box-shadow:
+      0 10px 40px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba(255, 255, 255, 0.8);
+  }
+
+  Section:has(.zoom-photo) Card,
+  Section:has(.zoom-photo) Card[variant='no-border'] {
+    overflow: visible !important;
+    position: relative;
+  }
+
+  .image-circle-container {
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
+  .photo {
+    width: min(21.875rem, 50vw);
+    height: min(21.875rem, 50vw);
+    border-radius: 50%;
+    object-fit: cover;
+    border: 0.25rem solid var(--accent-light);
+    box-shadow: var(--shadow);
+  }
+
+  :target {
+    scroll-margin-top: 100px;
+  }
+</style>
