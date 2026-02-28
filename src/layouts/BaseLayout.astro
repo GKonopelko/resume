@@ -15,31 +15,42 @@ export interface Props {
 }
 
 const { title, description, canonicalUrl, structuredData, faqData = [] } = Astro.props;
-const siteUrl = 'https://grigori.konopelko.com';
-const fullCanonicalUrl = canonicalUrl || siteUrl + Astro.url.pathname;
+const siteUrl = 'https://resume.konopelko.com';
+const fullCanonicalUrl =
+  canonicalUrl && canonicalUrl.trim() !== ''
+    ? siteUrl + canonicalUrl
+    : siteUrl + Astro.url.pathname;
 const fullOgImage = siteUrl + '/images/grigori.webp';
 
+// Обновленный structuredData для программиста 1С
 const jsonLdString = JSON.stringify(
   structuredData || {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: 'Репетитор финского языка - Григорий Конопелько',
+    '@type': 'Person',
+    name: 'Григорий Конопелько',
+    jobTitle: 'Программист 1С и Front-end разработчик',
     description: description,
     url: siteUrl,
-    telephone: '+7-911-777-02-97',
+    telephone: '+7-921-751-0397',
     email: 'grigori.konopelko@mail.ru',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'RU',
       addressLocality: 'Санкт-Петербург',
     },
-    areaServed: ['Россия', 'Финляндия'],
-    serviceType: 'Языковые курсы',
-    provider: {
-      '@type': 'Person',
-      name: 'Григорий Конопелько',
-      jobTitle: 'Репетитор финского языка',
-      experienceYears: '15',
+    areaServed: ['Россия'],
+    knowsAbout: [
+      '1С:Предприятие 8',
+      'Управление торговлей (УТ)',
+      'Управление холдингом (УХ)',
+      'Бухгалтерия предприятия (БП)',
+      'Зарплата и управление персоналом (ЗУП)',
+      'Разработка на языке 1С',
+      'Интеграция с внешними системами (HTTP, RabbitMQ, Kafka)',
+    ],
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Самозанятый / Фриланс',
     },
   }
 );
@@ -69,16 +80,28 @@ const faqStructuredData =
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="программист 1С, фронтенд разработчик, React, TypeScript, Санкт-Петербург, вакансии 1С, удаленная работа, 1С программист"
+    />
     <link rel="canonical" href={fullCanonicalUrl} />
 
-    <!-- Open Graph -->
+    <!-- Geo tags для локального SEO -->
+    <meta name="geo.region" content="RU-SPE" />
+    <meta name="geo.placename" content="Санкт-Петербург" />
+    <meta name="geo.position" content="59.9342802;30.3350986" />
+    <meta name="ICBM" content="59.9342802, 30.3350986" />
+
+    <!-- Open Graph (для ссылок в соцсетях) -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={fullCanonicalUrl} />
     <meta property="og:image" content={fullOgImage} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Репетитор финского языка - Григорий Конопелько" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Программист 1С - Григорий Конопелько" />
     <meta property="og:locale" content="ru_RU" />
+    <meta property="profile:first_name" content="Григорий" />
+    <meta property="profile:last_name" content="Конопелько" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

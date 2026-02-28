@@ -5,19 +5,22 @@ import Section from '../components/ui/Section.astro';
 import FlexRow from '../components/ui/FlexRow.astro';
 ---
 
-<BaseLayout title="Резюме" description="Резюме" canonicalUrl="0">
+<BaseLayout
+  title="Резюме программиста 1С и Front-end разработчика | Григорий Конопелько, Санкт-Петербург"
+  description="Программист 1С и Front-end разработчик в Санкт-Петербурге. Разработка на 1С, React, TypeScript, Next.js. Ищу работу, проекты и подработку. Опыт фриланса с 2023 года."
+  canonicalUrl="/"
+>
   <Section>
     <FlexRow>
       <Card variant="no-border">
         <div class="image-circle-container">
           <img
             src="/images/grigori.webp"
-            alt="Григорий Конопелько - программист 1С"
+            alt="Григорий Конопелько - программист 1С и Front-end разработчик"
             width="400"
             height="400"
             loading="eager"
             fetchpriority="high"
-            decoding="async"
             class="photo"
           />
         </div>
@@ -28,6 +31,7 @@ import FlexRow from '../components/ui/FlexRow.astro';
       </Card>
     </FlexRow>
   </Section>
+
   <Section>
     <h2 id="about">Обо мне</h2>
     <p>
@@ -56,53 +60,47 @@ import FlexRow from '../components/ui/FlexRow.astro';
   <Section>
     <h2 id="education">Образование</h2>
     <FlexRow>
-      <Card variant="no-border">
+      <Card variant="no-border" class="card-with-zoom">
         <h3>1С</h3>
         <img
           src="/images/ПовышениеКвалификации1С.jpg"
-          alt="Григорий Конопелько - программист 1С"
+          alt="Сертификат 1С о повышении квалификации"
           width="500"
           height="400"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
+          loading="lazy"
           class="zoom-photo"
         />
       </Card>
-      <Card variant="no-border">
+      <Card variant="no-border" class="card-with-zoom">
         <h3>Front End</h3>
         <img
           src="/images/RSSchool Certificate.jpg"
-          alt="Григорий Конопелько - программист 1С"
+          alt="Сертификат RS School Front-end"
           width="300"
           height="400"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          class="zoom-photo"
-        />
-        <div>-</div>
-        <img
-          src="/images/RSSchool Certificate React.jpg"
-          alt="Григорий Конопелько - программист 1С"
-          width="300"
-          height="400"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
+          loading="lazy"
           class="zoom-photo"
         />
       </Card>
-      <Card variant="no-border">
+      <Card variant="no-border" class="card-with-zoom">
+        <h3>Front End React</h3>
+        <img
+          src="/images/RSSchool Certificate React.jpg"
+          alt="Сертификат RS School React"
+          width="300"
+          height="400"
+          loading="lazy"
+          class="zoom-photo"
+        />
+      </Card>
+      <Card variant="no-border" class="card-with-zoom">
         <h3>Филология</h3>
         <img
           src="/images/Diplomi.Konopelko.jpg"
-          alt="Григорий Конопелько - программист 1С"
+          alt="Диплом о высшем филологическом образовании"
           width="200"
           height="400"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
+          loading="lazy"
           class="zoom-photo"
         />
       </Card>
@@ -153,8 +151,7 @@ import FlexRow from '../components/ui/FlexRow.astro';
       0 0 0 1px rgba(255, 255, 255, 0.8);
   }
 
-  Section:has(.zoom-photo) Card,
-  Section:has(.zoom-photo) Card[variant='no-border'] {
+  .card-with-zoom {
     overflow: visible !important;
     position: relative;
   }
