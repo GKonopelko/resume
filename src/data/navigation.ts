@@ -1,6 +1,6 @@
 export const navigationLinks = [
-  { href: '#about', label: 'Обо мне' },
-  { href: '#skills', label: 'Навыки' },
+  { href: '#skills', label: 'Умею' },
+  { href: '#search', label: 'Ищу' },
   { href: '#education', label: 'Образование' },
-  { href: '#experience', label: 'Опыт работы' },
+  { href: '#experience', label: 'Опыт' },
 ];
